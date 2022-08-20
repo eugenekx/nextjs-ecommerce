@@ -12,7 +12,7 @@ const Layout = ({ children }: LayoutProps) => {
 		<div className={styles.layout}>
 			<Header />
 			<div className={styles.container}>
-				<main>{children}</main>
+				<main className={styles.main}>{children}</main>
 				<Cart />
 			</div>
 		</div>

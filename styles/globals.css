@@ -5,7 +5,18 @@
 	font-style: inherit;
 	font-size: 100%;
 	border: 0 none;
+	box-sizing: border-box;
 	outline: 0;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font: normal 14px "Roboto", Arial, sans-serif;
+}
+
+ul {
+	list-style: none;
 	padding: 0;
 	margin: 0;
 }

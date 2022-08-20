@@ -1,0 +1,36 @@
+.card {
+	width: 250px;
+	border: 1px solid #e7e7e7;
+	border-radius: 3px;
+}
+
+.title {
+	font-weight: bold;
+	padding: 10px 15px;
+	width: 200px;
+}
+
+.addToCart {
+	display: grid;
+	place-content: center;
+	cursor: pointer;
+	width: 40px;
+	height: 40px;
+	background: #3366ff;
+	border-radius: 3px;
+}
+
+.imgWrapper {
+	padding: 30px 10px;
+}
+
+.cardBottom {
+	display: flex;
+	align-items: center;
+	padding: 15px;
+	padding-top: 0;
+}
+
+.price {
+	margin-left: 15px;
+}

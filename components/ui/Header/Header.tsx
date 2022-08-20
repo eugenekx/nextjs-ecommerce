@@ -1,6 +1,7 @@
 import styles from "./Header.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { CartIcon } from "@components/icons";
 
 const Header = () => {
 	return (
@@ -16,7 +17,7 @@ const Header = () => {
 				</a>
 			</Link>
 
-			<Image src="/cart.svg" height={27} width={30} alt="Cart" />
+			<CartIcon />
 		</header>
 	);
 };
