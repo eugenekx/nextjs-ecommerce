@@ -11,6 +11,10 @@
 	margin: 0;
 }
 
+svg {
+	display: block;
+}
+
 body {
 	font: normal 14px "Roboto", Arial, sans-serif;
 }
@@ -19,4 +23,32 @@ ul {
 	list-style: none;
 	padding: 0;
 	margin: 0;
+}
+
+button {
+	border: none;
+	margin: 0;
+	padding: 0;
+	width: auto;
+	overflow: visible;
+
+	background: transparent;
+
+	color: inherit;
+	font: inherit;
+
+	line-height: normal;
+
+	-webkit-font-smoothing: inherit;
+	-moz-osx-font-smoothing: inherit;
+
+	-webkit-appearance: none;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+	text-decoration: none;
+	color: inherit;
 }

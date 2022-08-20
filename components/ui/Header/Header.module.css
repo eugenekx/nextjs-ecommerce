@@ -6,3 +6,23 @@
 	padding: 0 30px;
 	justify-content: space-between;
 }
+
+.cartIcon {
+	position: relative;
+	cursor: pointer;
+}
+
+.cartQuantity {
+	position: absolute;
+	top: -5px;
+	right: -5px;
+	font-size: 10px;
+	color: white;
+	width: 13px;
+	height: 13px;
+	text-align: center;
+	line-height: 13px;
+	border-radius: 100%;
+	background-color: #3366ff;
+	display: block;
+}

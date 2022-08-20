@@ -1,0 +1,45 @@
+.cartItem {
+	height: 100px;
+	display: flex;
+}
+
+.imgWrapper {
+	width: 100px;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.infoWrapper {
+	padding-left: 10px;
+}
+
+.quantity {
+	width: 40px;
+	text-align: center;
+}
+
+.price {
+	margin-left: 25px;
+}
+
+.quantityContainer {
+	padding-top: 15px;
+	display: flex;
+	align-items: center;
+}
+
+.minus {
+	cursor: pointer;
+}
+
+.plus {
+	cursor: pointer;
+}
+
+.close {
+	cursor: pointer;
+	align-self: start;
+	height: 20px;
+}

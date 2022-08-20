@@ -1,0 +1,9 @@
+.addToCart {
+	display: grid;
+	place-content: center;
+	cursor: pointer;
+	width: 40px;
+	height: 40px;
+	background: #3366ff;
+	border-radius: 3px;
+}

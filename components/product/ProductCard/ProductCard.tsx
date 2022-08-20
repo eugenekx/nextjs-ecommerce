@@ -1,7 +1,7 @@
 import styles from "./ProductCard.module.css";
 
 import Image from "next/image";
-import { CartIcon } from "@components/icons";
+import { CartButton } from "@components/ui";
 
 type ProductProps = {
 	title: string;
@@ -18,9 +18,7 @@ const ProductCard = ({ title, price, imgSrc }: ProductProps) => {
 
 			<h3 className={styles.title}>{title}</h3>
 			<div className={styles.cardBottom}>
-				<button className={styles.addToCart}>
-					<CartIcon fill="white" />
-				</button>
+				<CartButton />
 				<span className={styles.price}>$ {price}</span>
 			</div>
 		</div>

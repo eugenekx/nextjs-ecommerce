@@ -1,0 +1,42 @@
+.container {
+	padding-top: 30px;
+	width: 890px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.backButton {
+	cursor: pointer;
+	background: #3366ff;
+	border-radius: 3px;
+	color: white;
+	height: 40px;
+	padding: 8px 30px;
+}
+
+.imgWrapper {
+	position: relative;
+	margin-top: 20px;
+	border: 1px solid #d5d5d5;
+}
+
+.title {
+	margin-top: 20px;
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.number {
+	margin-top: 5px;
+}
+
+.cartAndPrice {
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+}
+
+.price {
+	font-size: 24px;
+	margin-left: 15px;
+}
