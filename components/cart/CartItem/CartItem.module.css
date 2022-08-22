@@ -4,7 +4,7 @@
 }
 
 .imgWrapper {
-	width: 100px;
+	min-width: 100px;
 	height: 100px;
 	display: flex;
 	justify-content: center;
@@ -13,6 +13,7 @@
 
 .infoWrapper {
 	padding-left: 10px;
+	width: 190px;
 }
 
 .quantity {
@@ -42,4 +43,21 @@
 	cursor: pointer;
 	align-self: start;
 	height: 20px;
+	margin-left: auto;
+}
+
+.close:hover svg path {
+	fill: black;
+}
+
+@media screen and (max-width: 1000px) {
+	.infoWrapper {
+		width: auto;
+	}
+}
+
+@media screen and (max-width: 540px) {
+	.infoWrapper {
+		width: 190px;
+	}
 }

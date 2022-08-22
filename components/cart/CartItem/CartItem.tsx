@@ -1,27 +1,14 @@
 import styles from "./CartItem.module.css";
-import Image from "next/image";
 import { PlusIcon, MinusIcon, CloseIcon } from "@components/icons";
-import products from "@components/data";
 import { CartDispatchContext } from "@components/cart/context";
+import { formatPrice, findProduct } from "@lib/utils";
 import { useContext } from "react";
+import Image from "next/image";
 
 type Props = {
 	id: number;
 	quantity: number;
 };
-
-function findProduct(id: number) {
-	let product = products.find((p) => p.id === id);
-	if (product) {
-		return product;
-	} else {
-		return {
-			title: "",
-			imgSrc: "",
-			price: 0,
-		};
-	}
-}
 
 const CartItem = ({ id, quantity }: Props) => {
 	const dispatch = useContext(CartDispatchContext);
@@ -35,21 +22,37 @@ const CartItem = ({ id, quantity }: Props) => {
 			<div className={styles.infoWrapper}>
 				<div>{title}</div>
 				<div className={styles.quantityContainer}>
-					<button className={styles.minus}>
+					<button
+						className={styles.minus}
+						onClick={() => {
+							dispatch({
+								type: "CART_DEC",
+								id: id,
+							});
+						}}
+					>
 						<MinusIcon />
 					</button>
 					<span className={styles.quantity}>{quantity}</span>
-					<button className={styles.plus}>
+					<button
+						className={styles.plus}
+						onClick={() => {
+							dispatch({
+								type: "CART_ADD",
+								id: id,
+							});
+						}}
+					>
 						<PlusIcon />
 					</button>
-					<span className={styles.price}>$ {price}</span>
+					<span className={styles.price}>{formatPrice(price)}</span>
 				</div>
 			</div>
 			<button
 				className={styles.close}
 				onClick={() => {
 					dispatch({
-						type: "deleted",
+						type: "CART_DELETE",
 						id: id,
 					});
 				}}

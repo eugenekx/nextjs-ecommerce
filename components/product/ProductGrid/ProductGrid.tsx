@@ -1,8 +1,7 @@
 import styles from "./ProductGrid.module.css";
-
 import { ProductCard } from "@components/product";
+import { products } from "@lib/data";
 import Link from "next/link";
-import products from "@components/data";
 
 const ProductGrid = () => {
 	return (

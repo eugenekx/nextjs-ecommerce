@@ -1,15 +1,16 @@
 import styles from "./ProductCard.module.css";
-
-import Image from "next/image";
 import { CartButton } from "@components/ui";
+import { formatPrice } from "@lib/utils";
+import Image from "next/image";
 
 type ProductProps = {
+	id: number;
 	title: string;
 	price: number;
 	imgSrc: string;
 };
 
-const ProductCard = ({ title, price, imgSrc }: ProductProps) => {
+const ProductCard = ({ id, title, price, imgSrc }: ProductProps) => {
 	return (
 		<div className={styles.card}>
 			<div className={styles.imgWrapper}>
@@ -18,8 +19,8 @@ const ProductCard = ({ title, price, imgSrc }: ProductProps) => {
 
 			<h3 className={styles.title}>{title}</h3>
 			<div className={styles.cardBottom}>
-				<CartButton />
-				<span className={styles.price}>$ {price}</span>
+				<CartButton id={id} />
+				<span className={styles.price}>{formatPrice(price)}</span>
 			</div>
 		</div>
 	);

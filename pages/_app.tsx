@@ -5,8 +5,8 @@ import {
 	CartContext,
 	CartDispatchContext,
 	cartReducer,
-	defaultCart,
 } from "@components/cart/context";
+import { defaultCart } from "@lib/data";
 import { useReducer } from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {

@@ -4,6 +4,10 @@
 	cursor: pointer;
 	width: 40px;
 	height: 40px;
-	background: #3366ff;
+	background: var(--color-primary);
 	border-radius: 3px;
+}
+
+.addToCart:hover {
+	opacity: 0.75;
 }

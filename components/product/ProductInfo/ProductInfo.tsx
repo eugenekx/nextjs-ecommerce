@@ -1,18 +1,15 @@
 import styles from "./ProductInfo.module.css";
-
+import { CartButton } from "@components/ui";
+import { formatPrice, findProduct } from "@lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
-import { CartButton } from "@components/ui";
+type Props = {
+	id: number;
+};
 
-const ProductInfo = () => {
-	const product = {
-		id: 0,
-		title: "New Balance 574 Vintage Brights",
-		imgSrc: "/product1.png",
-		number: "MT91547",
-		price: 650,
-	};
+const ProductInfo = ({ id }: Props) => {
+	const product = findProduct(id);
 
 	return (
 		<div className={styles.container}>
@@ -37,8 +34,10 @@ const ProductInfo = () => {
 			<p className={styles.number}>Item model number: {product.number}</p>
 
 			<div className={styles.cartAndPrice}>
-				<CartButton />
-				<span className={styles.price}>$ {product.price}</span>
+				<CartButton id={id} />
+				<span className={styles.price}>
+					{formatPrice(product.price)}
+				</span>
 			</div>
 		</div>
 	);

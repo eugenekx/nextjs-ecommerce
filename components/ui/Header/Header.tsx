@@ -1,11 +1,14 @@
 import styles from "./Header.module.css";
-import Image from "next/image";
-import Link from "next/link";
 import { CartIcon } from "@components/icons";
 import { CartContext } from "@components/cart/context";
 import { useContext } from "react";
+import Image from "next/image";
+import Link from "next/link";
+type Props = {
+	handleCartToggle: () => void;
+};
 
-const Header = () => {
+const Header = ({ handleCartToggle }: Props) => {
 	const cart = useContext(CartContext);
 	const cartItemQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -22,14 +25,14 @@ const Header = () => {
 				</a>
 			</Link>
 
-			<div className={styles.cartIcon}>
+			<button className={styles.cartIcon} onClick={handleCartToggle}>
 				<CartIcon />
 				{cartItemQuantity > 0 && (
 					<span className={styles.cartQuantity}>
 						{cartItemQuantity}
 					</span>
 				)}
-			</div>
+			</button>
 		</header>
 	);
 };

@@ -1,7 +1,30 @@
 .cart {
+	display: none;
+	background: white;
 	min-width: 400px;
 	border-left: 1px solid #cfcfcf;
 	margin-left: auto;
+}
+
+.opened {
+	display: block;
+}
+
+.closeButtonWrapper {
+	display: none;
+	padding-top: 30px;
+}
+
+.closeButton {
+	cursor: pointer;
+	margin-left: auto;
+	margin-right: 30px;
+}
+
+.cartItems {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
 }
 
 .itemsContainer {
@@ -35,6 +58,18 @@
 
 @media screen and (max-width: 1000px) {
 	.cart {
-		display: none;
+		position: fixed;
+		width: 100%;
+		height: calc(100vh - var(--header-size));
+		overflow: scroll;
+	}
+
+	.closeButtonWrapper {
+		display: flex;
+	}
+
+	.itemsContainer {
+		padding-top: 30px;
+		border-bottom: 1px solid #cfcfcf;
 	}
 }
