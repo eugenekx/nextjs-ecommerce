@@ -3,7 +3,7 @@ import { CartItem } from "@components/cart";
 import { CloseIcon } from "@components/icons";
 import { type CartEntry, formatPrice, findProduct } from "@lib/utils";
 import { tax, shipping } from "@lib/data";
-import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 type Props = {
 	cart: CartEntry[];
@@ -27,7 +27,7 @@ const Cart = ({ cart, isCartOpened, handleCartToggle }: Props) => {
 	}
 
 	return (
-		<AnimatePresence>
+		<AnimatePresence mode="popLayout">
 			{cart.length && isCartOpened && (
 				<motion.div
 					initial={{ x: "100%" }}

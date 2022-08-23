@@ -12,7 +12,7 @@ const Home: NextPage = () => {
 				<meta itemProp="name" content={"SP.Shop"} />
 				<meta itemProp="description" content={seoDescription} />
 			</Head>
-			<ProductGrid />;
+			<ProductGrid />
 		</>
 	);
 };

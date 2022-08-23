@@ -43,10 +43,7 @@ export const products = [
 	},
 ];
 
-export const defaultCart = [
-	{ id: 0, quantity: 1 },
-	{ id: 2, quantity: 1 },
-];
+export const defaultCart = [];
 
 export const tax = 100;
 export const shipping = 150;

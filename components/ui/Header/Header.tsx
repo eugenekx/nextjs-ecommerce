@@ -4,6 +4,7 @@ import { CartContext } from "@components/cart/context";
 import { useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 type Props = {
 	isCartOpened: boolean;
@@ -15,7 +16,17 @@ const Header = ({ isCartOpened, handleCartToggle }: Props) => {
 	const cartItemQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
 
 	return (
-		<header className={styles.header}>
+		<motion.header
+			initial={{ y: "-100%", opacity: 0 }}
+			animate={{ y: "0%", opacity: 1 }}
+			transition={{
+				ease: "easeOut",
+				duration: 0.5,
+				delay: 0.5,
+				opacity: { delay: 0.7 },
+			}}
+			className={styles.header}
+		>
 			<Link href="/">
 				<a
 					onClick={() => {
@@ -41,7 +52,7 @@ const Header = ({ isCartOpened, handleCartToggle }: Props) => {
 					</span>
 				)}
 			</button>
-		</header>
+		</motion.header>
 	);
 };
 

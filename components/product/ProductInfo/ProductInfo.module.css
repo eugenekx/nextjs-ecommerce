@@ -15,6 +15,10 @@
 	padding: 8px 30px;
 }
 
+.backButton:hover {
+	opacity: 0.75;
+}
+
 .imgWrapper {
 	position: relative;
 	margin-top: 20px;

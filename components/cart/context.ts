@@ -61,7 +61,7 @@ export function cartReducer(cart: CartEntry[], action: Action): CartEntry[] {
 	}
 }
 
-export const CartContext = createContext(defaultCart);
+export const CartContext = createContext(defaultCart as CartEntry[]);
 export const CartDispatchContext = createContext(
 	(() => undefined) as Dispatch<Action>
 );
