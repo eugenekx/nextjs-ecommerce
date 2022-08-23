@@ -40,7 +40,7 @@ function handleDecItemQuantity(cart: CartItems, id: number): CartItems {
 			quantity,
 		};
 
-		return cart.map((item, i) => (indexInCart === i ? newItem : item));
+		return cart.map((item, i) => (i === indexInCart ? item : newItem));
 	}
 }
 
