@@ -20,9 +20,9 @@ const Layout = ({ children }: LayoutProps) => {
 			} else {
 				document.body.classList.add("body-noscroll-mobile");
 			}
-		}
 
-		setIsCartOpened(!isCartOpened);
+			setIsCartOpened(!isCartOpened);
+		}
 	}
 
 	useEffect(() => {

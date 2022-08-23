@@ -25,13 +25,9 @@ const Cart = ({ cart, isCartOpened, handleCartToggle }: Props) => {
 		return sum;
 	}
 
-	if (cart.length) {
+	if (cart.length && isCartOpened) {
 		return (
-			<div
-				className={`${styles.cart} ${
-					isCartOpened ? styles.opened : ""
-				}`}
-			>
+			<div className={styles.cart}>
 				<div className={styles.closeButtonWrapper}>
 					<button
 						className={styles.closeButton}

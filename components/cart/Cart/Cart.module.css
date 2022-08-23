@@ -1,13 +1,8 @@
 .cart {
-	display: none;
 	background: white;
 	min-width: 400px;
 	border-left: 1px solid #cfcfcf;
 	margin-left: auto;
-}
-
-.opened {
-	display: block;
 }
 
 .closeButtonWrapper {
