@@ -34,7 +34,10 @@ const Layout = ({ children }: LayoutProps) => {
 
 	return (
 		<div className={styles.layout}>
-			<Header handleCartToggle={handleCartToggle} />
+			<Header
+				isCartOpened={isCartOpened}
+				handleCartToggle={handleCartToggle}
+			/>
 			<div className={styles.headerSpacer}></div>
 			<div className={styles.container}>
 				<main className={styles.main}>{children}</main>

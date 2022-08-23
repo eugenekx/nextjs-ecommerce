@@ -4,18 +4,26 @@ import { CartContext } from "@components/cart/context";
 import { useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
+
 type Props = {
+	isCartOpened: boolean;
 	handleCartToggle: () => void;
 };
 
-const Header = ({ handleCartToggle }: Props) => {
+const Header = ({ isCartOpened, handleCartToggle }: Props) => {
 	const cart = useContext(CartContext);
 	const cartItemQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
 
 	return (
 		<header className={styles.header}>
 			<Link href="/">
-				<a>
+				<a
+					onClick={() => {
+						if (window.innerWidth <= 1000 && isCartOpened) {
+							handleCartToggle();
+						}
+					}}
+				>
 					<Image
 						src="/logo.svg"
 						height={32}
