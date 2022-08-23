@@ -50,3 +50,6 @@ export const defaultCart = [
 
 export const tax = 100;
 export const shipping = 150;
+
+export const seoDescription =
+	"Tackle your workouts with confidence in performance running shoes and stylish clothes from New Balance. Our athletic footwear goes the distance with you.";

@@ -1,5 +1,8 @@
 import { useRouter } from "next/router";
 import { ProductInfo } from "@components/product";
+import { findProduct } from "@lib/utils";
+import { seoDescription } from "@lib/data";
+import Head from "next/head";
 
 const ProductPage = () => {
 	const router = useRouter();
@@ -15,7 +18,19 @@ const ProductPage = () => {
 		return parseInt(query, 10);
 	}
 
-	return <ProductInfo id={parseProductID(router.query.id)} />;
+	const product = findProduct(parseProductID(router.query.id));
+	return (
+		<>
+			<Head>
+				<title>{product.title} — SP.Shop</title>
+				<meta name="description" content={seoDescription} />
+				<meta itemProp="name" content={product.title} />
+				<meta itemProp="description" content={seoDescription} />
+				<meta itemProp="image" content={product.imgSrc} />
+			</Head>
+			<ProductInfo product={product} />
+		</>
+	);
 };
 
 export default ProductPage;
