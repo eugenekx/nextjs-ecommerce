@@ -13,7 +13,7 @@ function handleAddItem(cart: CartItems, id: number): CartItems {
 	if (indexInCart === -1) {
 		return [...cart, { id: id, quantity: 1 }];
 	} else {
-		let quantity = cart[indexInCart].quantity++;
+		let quantity = ++cart[indexInCart].quantity;
 		let newItem = {
 			id,
 			quantity,
@@ -30,17 +30,17 @@ function handleDeleteItem(cart: CartItems, id: number): CartItems {
 function handleDecItemQuantity(cart: CartItems, id: number): CartItems {
 	let indexInCart = cart.findIndex((i) => i.id === id);
 
-	let quantity = cart[indexInCart].quantity--;
+	let quantity = --cart[indexInCart].quantity;
 
 	if (quantity <= 0) {
 		return handleDeleteItem(cart, id);
 	} else {
-		let newItem = {
+		const newItem = {
 			id,
 			quantity,
 		};
 
-		return cart.map((item, i) => (indexInCart === i ? newItem : item));
+		return cart.map((item, i) => (i === indexInCart ? item : newItem));
 	}
 }
 
