@@ -13,17 +13,17 @@ function handleAddItem(cart: CartItems, id: number): CartItems {
 	if (indexInCart === -1) {
 		return [...cart, { id: id, quantity: 1 }];
 	} else {
-		let quantity = cart[indexInCart].quantity++;
+		let quantity = ++cart[indexInCart].quantity;
 		let newItem = {
 			id,
 			quantity,
 		};
 
-		let newCart = [...cart];
+		/*let newCart = [...cart];
 		newCart[indexInCart] = newItem;
 
-		return newCart;
-		// return cart.map((item, i) => (indexInCart === i ? newItem : item));
+		return newCart;*/
+		return cart.map((item, i) => (indexInCart === i ? newItem : item));
 	}
 }
 
