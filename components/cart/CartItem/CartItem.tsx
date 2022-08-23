@@ -52,7 +52,7 @@ const CartItem = ({ id, quantity }: Props) => {
 				className={styles.close}
 				onClick={() => {
 					dispatch({
-						type: "CART_ADD",
+						type: "CART_DELETE",
 						id: id,
 					});
 				}}

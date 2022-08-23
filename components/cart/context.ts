@@ -35,7 +35,7 @@ function handleDecItemQuantity(cart: CartItems, id: number): CartItems {
 	if (quantity <= 0) {
 		return handleDeleteItem(cart, id);
 	} else {
-		let newItem = {
+		const newItem = {
 			id,
 			quantity,
 		};
