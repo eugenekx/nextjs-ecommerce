@@ -9,11 +9,11 @@ export type Action = {
 
 function handleAddItem(cart: CartItems, id: number): CartItems {
 	let indexInCart = cart.findIndex((i) => i.id === id);
-
 	if (indexInCart === -1) {
 		return [...cart, { id: id, quantity: 1 }];
 	} else {
-		let quantity = ++cart[indexInCart].quantity;
+		let quantity = cart[indexInCart].quantity + 1;
+
 		let newItem = {
 			id,
 			quantity,
@@ -30,7 +30,7 @@ function handleDeleteItem(cart: CartItems, id: number): CartItems {
 function handleDecItemQuantity(cart: CartItems, id: number): CartItems {
 	let indexInCart = cart.findIndex((i) => i.id === id);
 
-	let quantity = --cart[indexInCart].quantity;
+	let quantity = cart[indexInCart].quantity - 1;
 
 	if (quantity <= 0) {
 		return handleDeleteItem(cart, id);
