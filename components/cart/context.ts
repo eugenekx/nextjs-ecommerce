@@ -19,7 +19,11 @@ function handleAddItem(cart: CartItems, id: number): CartItems {
 			quantity,
 		};
 
-		return cart.map((item, i) => (indexInCart === i ? newItem : item));
+		let newCart = [...cart];
+		newCart[indexInCart] = newItem;
+
+		return newCart;
+		// return cart.map((item, i) => (indexInCart === i ? newItem : item));
 	}
 }
 
