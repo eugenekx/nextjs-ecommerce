@@ -54,17 +54,18 @@ const Cart = ({ cart, isCartOpened, handleCartToggle }: Props) => {
 							My Basket
 						</motion.div>
 						<motion.ul layout className={styles.cartItems}>
-							<AnimatePresence initial={false}>
+							<AnimatePresence initial={false} mode="popLayout">
 								{cart.map((item, i) => (
 									<motion.li
 										layout="position"
 										key={item.id}
-										initial={{ opacity: 0 }}
-										animate={{ opacity: 1 }}
-										exit={{ opacity: 0 }}
+										initial={{ opacity: 0, scale: 0.8 }}
+										animate={{ opacity: 1, scale: 1 }}
+										exit={{ opacity: 0, scale: 0.8 }}
 										transition={{
 											opacity: {
 												delay: 0.2,
+												duration: 0.1,
 											},
 											delay: 0.1,
 										}}
