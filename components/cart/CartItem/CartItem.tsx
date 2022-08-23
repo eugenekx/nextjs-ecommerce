@@ -18,8 +18,15 @@ const CartItem = ({ cartItem, handleCartToggle }: Props) => {
 	return (
 		<Link href={`/product/${cartItem.id}`}>
 			<a
-				onClick={() => {
-					if (window.innerWidth <= 1000) {
+				onClick={(e) => {
+					const target = e.target as HTMLElement;
+					const buttons = ["svg", "path"];
+
+					if (
+						window.innerWidth <= 1000 &&
+						!buttons.includes(target.nodeName)
+					) {
+						console.log(target.nodeName);
 						handleCartToggle();
 					}
 				}}

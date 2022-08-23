@@ -1,5 +1,6 @@
 import styles from "./Layout.module.css";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
+import { CartContext } from "@components/cart/context";
 import { Header } from "@components/ui";
 import { Cart } from "@components/cart";
 
@@ -9,17 +10,26 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
 	const [isCartOpened, setIsCartOpened] = useState(false); // for mobile devices
+	const cart = useContext(CartContext);
 
 	function handleCartToggle() {
 		// prevent body scroll if cart is going to be opened
-		if (isCartOpened) {
-			document.body.classList.remove("body-noscroll-mobile");
-		} else {
-			document.body.classList.add("body-noscroll-mobile");
+		if (cart.length) {
+			if (isCartOpened) {
+				document.body.classList.remove("body-noscroll-mobile");
+			} else {
+				document.body.classList.add("body-noscroll-mobile");
+			}
 		}
 
 		setIsCartOpened(!isCartOpened);
 	}
+
+	useEffect(() => {
+		if (!cart.length) {
+			setIsCartOpened(false);
+		}
+	}, [cart.length]);
 
 	return (
 		<div className={styles.layout}>
@@ -28,6 +38,7 @@ const Layout = ({ children }: LayoutProps) => {
 			<div className={styles.container}>
 				<main className={styles.main}>{children}</main>
 				<Cart
+					cart={cart}
 					isCartOpened={isCartOpened}
 					handleCartToggle={handleCartToggle}
 				/>
