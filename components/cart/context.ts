@@ -19,10 +19,6 @@ function handleAddItem(cart: CartItems, id: number): CartItems {
 			quantity,
 		};
 
-		/*let newCart = [...cart];
-		newCart[indexInCart] = newItem;
-
-		return newCart;*/
 		return cart.map((item, i) => (indexInCart === i ? newItem : item));
 	}
 }
@@ -34,7 +30,7 @@ function handleDeleteItem(cart: CartItems, id: number): CartItems {
 function handleDecItemQuantity(cart: CartItems, id: number): CartItems {
 	let indexInCart = cart.findIndex((i) => i.id === id);
 
-	let quantity = cart[indexInCart].quantity--;
+	let quantity = --cart[indexInCart].quantity;
 
 	if (quantity <= 0) {
 		return handleDeleteItem(cart, id);
