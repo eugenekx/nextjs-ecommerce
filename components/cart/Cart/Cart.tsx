@@ -3,7 +3,7 @@ import { CartItem } from "@components/cart";
 import { CloseIcon } from "@components/icons";
 import { type CartEntry, formatPrice, findProduct } from "@lib/utils";
 import { tax, shipping } from "@lib/data";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 
 type Props = {
 	cart: CartEntry[];
@@ -44,20 +44,46 @@ const Cart = ({ cart, isCartOpened, handleCartToggle }: Props) => {
 							<CloseIcon fill="black" width={22} height={22} />
 						</button>
 					</div>
-					<div className={styles.itemsContainer}>
-						<div className={styles.title}>My Basket</div>
-						<ul className={styles.cartItems}>
-							{cart.map((item, i) => (
-								<li key={item.id}>
-									<CartItem
-										cartItem={item}
-										handleCartToggle={handleCartToggle}
-									/>
-								</li>
-							))}
-						</ul>
-					</div>
-					<div className={styles.totalContainer}>
+
+					<motion.div
+						layout
+						transition={{ delay: 0.1 }}
+						className={styles.itemsContainer}
+					>
+						<motion.div layout className={styles.title}>
+							My Basket
+						</motion.div>
+						<motion.ul layout className={styles.cartItems}>
+							<AnimatePresence initial={false}>
+								{cart.map((item, i) => (
+									<motion.li
+										layout="position"
+										key={item.id}
+										initial={{ opacity: 0 }}
+										animate={{ opacity: 1 }}
+										exit={{ opacity: 0 }}
+										transition={{
+											opacity: {
+												delay: 0.2,
+											},
+											delay: 0.1,
+										}}
+									>
+										<CartItem
+											cartItem={item}
+											handleCartToggle={handleCartToggle}
+										/>
+									</motion.li>
+								))}
+							</AnimatePresence>
+						</motion.ul>
+					</motion.div>
+
+					<motion.div
+						layout
+						transition={{ delay: 0.1 }}
+						className={styles.totalContainer}
+					>
 						<p className={styles.costRow}>
 							Subtotal{" "}
 							<span className={styles.cost}>
@@ -82,7 +108,7 @@ const Cart = ({ cart, isCartOpened, handleCartToggle }: Props) => {
 								{formatPrice(total)}
 							</span>
 						</p>
-					</div>
+					</motion.div>
 				</motion.div>
 			)}
 		</AnimatePresence>
