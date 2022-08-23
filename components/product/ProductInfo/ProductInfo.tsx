@@ -35,7 +35,7 @@ const ProductInfo = ({ product }: Props) => {
 				</p>
 
 				<div className={styles.cartAndPrice}>
-					<CartButton id={id} />
+					<CartButton id={product.id} />
 					<span className={styles.price}>
 						{formatPrice(product.price)}
 					</span>
