@@ -27,6 +27,7 @@ const Layout = ({ children }: LayoutProps) => {
 
 	useEffect(() => {
 		if (!cart.length) {
+			document.body.classList.remove("body-noscroll-mobile");
 			setIsCartOpened(false);
 		}
 	}, [cart.length]);
