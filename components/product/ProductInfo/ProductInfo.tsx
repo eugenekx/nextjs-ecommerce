@@ -3,6 +3,7 @@ import { CartButton } from "@components/ui";
 import { formatPrice, Product } from "@lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 type Props = {
 	product: Product;
@@ -11,7 +12,7 @@ type Props = {
 const ProductInfo = ({ product }: Props) => {
 	return (
 		<>
-			<div className={styles.container}>
+			<motion.div layout className={styles.container}>
 				<Link href="/">
 					<a>
 						<button className={styles.backButton}>
@@ -40,7 +41,7 @@ const ProductInfo = ({ product }: Props) => {
 						{formatPrice(product.price)}
 					</span>
 				</div>
-			</div>
+			</motion.div>
 		</>
 	);
 };

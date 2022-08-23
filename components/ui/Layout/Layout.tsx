@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import { CartContext } from "@components/cart/context";
 import { Header } from "@components/ui";
 import { Cart } from "@components/cart";
+import { motion, LayoutGroup } from "framer-motion";
 
 type LayoutProps = {
 	children: React.ReactNode;
@@ -30,6 +31,10 @@ const Layout = ({ children }: LayoutProps) => {
 			document.body.classList.remove("body-noscroll-mobile");
 			setIsCartOpened(false);
 		}
+
+		if (cart.length === 1 && window.innerWidth >= 1000) {
+			setIsCartOpened(true);
+		}
 	}, [cart.length]);
 
 	return (
@@ -40,12 +45,16 @@ const Layout = ({ children }: LayoutProps) => {
 			/>
 			<div className={styles.headerSpacer}></div>
 			<div className={styles.container}>
-				<main className={styles.main}>{children}</main>
-				<Cart
-					cart={cart}
-					isCartOpened={isCartOpened}
-					handleCartToggle={handleCartToggle}
-				/>
+				<LayoutGroup>
+					<motion.main layout="position" className={styles.main}>
+						{children}
+					</motion.main>
+					<Cart
+						cart={cart}
+						isCartOpened={isCartOpened}
+						handleCartToggle={handleCartToggle}
+					/>
+				</LayoutGroup>
 			</div>
 		</div>
 	);
