@@ -1,9 +1,9 @@
 import { products } from "@lib/data";
 
-export type CartItems = {
+export type CartEntry = {
 	id: number;
 	quantity: number;
-}[];
+};
 
 export type Product = {
 	id: number;

@@ -2,7 +2,7 @@ import styles from "./Cart.module.css";
 import { CartItem } from "@components/cart";
 import { CloseIcon } from "@components/icons";
 import { CartContext } from "@components/cart/context";
-import { type CartItems, formatPrice, findProduct } from "@lib/utils";
+import { type CartEntry, formatPrice, findProduct } from "@lib/utils";
 import { tax, shipping } from "@lib/data";
 import { useContext } from "react";
 
@@ -16,7 +16,7 @@ const Cart = ({ isCartOpened, handleCartToggle }: Props) => {
 	const subtotal = getCartSubtotal(cart);
 	const total = subtotal + tax + shipping;
 
-	function getCartSubtotal(cart: CartItems): number {
+	function getCartSubtotal(cart: CartEntry[]): number {
 		let sum = cart.reduce((sum, item) => {
 			let product = findProduct(item.id);
 			let price = product ? product.price : 0;
@@ -42,7 +42,10 @@ const Cart = ({ isCartOpened, handleCartToggle }: Props) => {
 				<ul className={styles.cartItems}>
 					{cart.map((item, i) => (
 						<li key={i}>
-							<CartItem {...item} />
+							<CartItem
+								cartItem={item}
+								handleCartToggle={handleCartToggle}
+							/>
 						</li>
 					))}
 				</ul>

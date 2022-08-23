@@ -1,13 +1,13 @@
 import { createContext, type Dispatch } from "react";
 import { defaultCart } from "@lib/data";
-import { type CartItems } from "@lib/utils";
+import { type CartEntry } from "@lib/utils";
 
 export type Action = {
 	type: "CART_ADD" | "CART_DELETE" | "CART_DEC";
 	id: number;
 };
 
-function handleAddItem(cart: CartItems, id: number): CartItems {
+function handleAddItem(cart: CartEntry[], id: number): CartEntry[] {
 	let indexInCart = cart.findIndex((i) => i.id === id);
 	if (indexInCart === -1) {
 		return [...cart, { id: id, quantity: 1 }];
@@ -23,11 +23,11 @@ function handleAddItem(cart: CartItems, id: number): CartItems {
 	}
 }
 
-function handleDeleteItem(cart: CartItems, id: number): CartItems {
+function handleDeleteItem(cart: CartEntry[], id: number): CartEntry[] {
 	return cart.filter((i) => i.id !== id);
 }
 
-function handleDecItemQuantity(cart: CartItems, id: number): CartItems {
+function handleDecItemQuantity(cart: CartEntry[], id: number): CartEntry[] {
 	let indexInCart = cart.findIndex((i) => i.id === id);
 
 	let quantity = cart[indexInCart].quantity - 1;
@@ -44,7 +44,7 @@ function handleDecItemQuantity(cart: CartItems, id: number): CartItems {
 	}
 }
 
-export function cartReducer(cart: CartItems, action: Action): CartItems {
+export function cartReducer(cart: CartEntry[], action: Action): CartEntry[] {
 	switch (action.type) {
 		case "CART_ADD": {
 			return handleAddItem(cart, action.id);

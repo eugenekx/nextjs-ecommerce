@@ -1,23 +1,29 @@
 import styles from "./CartItem.module.css";
 import { PlusIcon, MinusIcon, CloseIcon } from "@components/icons";
 import { CartDispatchContext } from "@components/cart/context";
-import { formatPrice, findProduct } from "@lib/utils";
+import { formatPrice, findProduct, type CartEntry } from "@lib/utils";
 import { useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 type Props = {
-	id: number;
-	quantity: number;
+	cartItem: CartEntry;
+	handleCartToggle: () => void;
 };
 
-const CartItem = ({ id, quantity }: Props) => {
+const CartItem = ({ cartItem, handleCartToggle }: Props) => {
 	const dispatch = useContext(CartDispatchContext);
-	const { title, imgSrc, price } = findProduct(id);
-
+	const { title, imgSrc, price } = findProduct(cartItem.id);
+	const { id, quantity } = cartItem;
 	return (
-		<Link href={`/product/${id}`}>
-			<a>
+		<Link href={`/product/${cartItem.id}`}>
+			<a
+				onClick={() => {
+					if (window.innerWidth <= 1000) {
+						handleCartToggle();
+					}
+				}}
+			>
 				<div className={styles.cartItem}>
 					<div className={styles.imgWrapper}>
 						<Image
