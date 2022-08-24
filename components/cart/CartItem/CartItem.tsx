@@ -26,6 +26,7 @@ const CartItem = ({ cartItem, handleCartToggle }: Props) => {
 						window.innerWidth <= 1000 &&
 						!buttons.includes(target.nodeName)
 					) {
+						window.scrollTo(0, 0); // for cart animation to work properly
 						handleCartToggle();
 					}
 				}}

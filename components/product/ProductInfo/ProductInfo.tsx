@@ -11,7 +11,7 @@ type Props = {
 
 const ProductInfo = ({ product }: Props) => {
 	return (
-		<motion.div layout className={styles.container}>
+		<motion.div layout="position" className={styles.container}>
 			<Link href="/">
 				<a>
 					<button className={styles.backButton}>
