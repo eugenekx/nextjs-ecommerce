@@ -27,11 +27,13 @@ const Cart = ({ cart, isCartOpened, handleCartToggle }: Props) => {
 	}
 
 	return (
-		<AnimatePresence mode="popLayout">
+		<AnimatePresence>
 			{cart.length && isCartOpened && (
 				<motion.div
+					layout="position"
+					layoutScroll
 					initial={{ x: "100%" }}
-					animate={{ x: "0" }}
+					animate={{ x: "0%" }}
 					exit={{ x: "100%" }}
 					transition={{ ease: "easeOut", duration: 0.3 }}
 					className={styles.cart}
