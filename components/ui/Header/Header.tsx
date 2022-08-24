@@ -47,9 +47,20 @@ const Header = ({ isCartOpened, handleCartToggle }: Props) => {
 			<button className={styles.cartIcon} onClick={handleCartToggle}>
 				<CartIcon />
 				{cartItemQuantity > 0 && (
-					<span className={styles.cartQuantity}>
+					<motion.span
+						initial={{ scale: 0 }}
+						animate={{ scale: 1 }}
+						transition={{
+							type: "spring",
+							bounce: 0.6,
+							damping: 10,
+							mass: 1.5,
+						}}
+						exit={{ scale: 0 }}
+						className={styles.cartQuantity}
+					>
 						{cartItemQuantity}
-					</span>
+					</motion.span>
 				)}
 			</button>
 		</motion.header>
